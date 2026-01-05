@@ -34,10 +34,11 @@ if (menuBtn && nav && overlay) {
 
   overlay.addEventListener("click", closeNav);
 
-  nav.addEventListener("click", (e) => {
-    if (!isMobile()) return;        // PCでは何もしない（通常遷移）
-    if (e.target.closest("a")) closeNav();
-  });
+ nav.addEventListener("click", (e) => {
+  const link = e.target.closest("a");
+  if (!link) return;
+  closeNav();   // 閉じるだけ。遷移はブラウザに任せる
+});
 
   window.addEventListener("resize", () => {
     if (!isMobile()) closeNav();    // PC幅に戻ったら強制的に閉じる
