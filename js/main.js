@@ -2,19 +2,9 @@ const menuBtn = document.getElementById("menu-btn");
 const nav = document.getElementById("nav");
 const overlay = document.getElementById("overlay");
 
-// 画面幅がスマホか判定（CSSの768pxと揃える）
 const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
 
 if (menuBtn && nav && overlay) {
-  function openNav() {
-    if (!isMobile()) return; // PC幅なら開かない
-
-    nav.classList.add("active");
-    overlay.classList.add("active");
-    document.body.classList.add("no-scroll");
-    menuBtn.setAttribute("aria-expanded", "true");
-  }
-
   function closeNav() {
     nav.classList.remove("active");
     overlay.classList.remove("active");
@@ -22,32 +12,38 @@ if (menuBtn && nav && overlay) {
     menuBtn.setAttribute("aria-expanded", "false");
   }
 
-  function toggleNav() {
-    const isOpen = nav.classList.contains("active");
-    isOpen ? closeNav() : openNav();
+  function openNav() {
+    if (!isMobile()) return;        // PCでは開かない
+    nav.classList.add("active");
+    overlay.classList.add("active");
+    document.body.classList.add("no-scroll");
+    menuBtn.setAttribute("aria-expanded", "true");
   }
 
-  // ☰ クリックで開閉
+  function toggleNav() {
+    nav.classList.contains("active") ? closeNav() : openNav();
+  }
+
+  // ★ ページ表示時に必ず初期化（overlay残り防止）
+  closeNav();
+
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     toggleNav();
   });
 
-  // オーバーレイを押したら閉じる
   overlay.addEventListener("click", closeNav);
 
-  // nav内リンクを押したら閉じる
   nav.addEventListener("click", (e) => {
+    if (!isMobile()) return;        // PCでは何もしない（通常遷移）
     if (e.target.closest("a")) closeNav();
   });
 
-  // Escキーで閉じる
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeNav();
+  window.addEventListener("resize", () => {
+    if (!isMobile()) closeNav();    // PC幅に戻ったら強制的に閉じる
   });
 
-  // PC幅になったら強制的に閉じる（開きっぱなし防止）
-  window.addEventListener("resize", () => {
-    if (!isMobile()) closeNav();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNav();
   });
 }
