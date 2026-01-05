@@ -185,10 +185,11 @@ body.no-scroll{
     overflow: hidden;
 }
 
-.logo {
+.logo a {
   text-decoration: none;
   color: #333;
 }
+
 
 
 
