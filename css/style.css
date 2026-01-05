@@ -1,15 +1,18 @@
+/* ===== Base ===== */
 body {
   margin: 0;
   font-family: "Helvetica Neue", sans-serif;
   color: #333;
 }
 
+/* ===== Header ===== */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 14px 24px;
   background: #fff;
+  position: relative;
 }
 
 .header-left {
@@ -18,59 +21,72 @@ body {
   gap: 18px;
 }
 
-.logo {
-  color: #333;
+/* ヘッダー内リンクの共通リセット（保険） */
+.header a {
   text-decoration: none;
+  color: inherit;
 }
 
-.logo:visited {
+/* ロゴ */
+.logo a,
+a.logo {
+  color: #333;
+  font-weight: 700;
+}
+.logo a:visited,
+a.logo:visited {
   color: #333;
 }
 
-
-.nav {
+/* PCナビ */
+#nav {
   display: flex;
   align-items: center;
   gap: 18px;
 }
 
-/* ナビゲーションのリンクをURLっぽくしない */
-.nav a {
+#nav a {
   color: #333;
-  text-decoration: none;
   font-weight: 500;
 }
-
-/* 訪問済みでも色を変えない */
-.nav a:visited {
-  color: #333;
-}
-
-/* ホバー時だけ軽く変化 */
-.nav a:hover {
+#nav a:hover {
   opacity: 0.7;
 }
 
+/* 現在ページ */
+#nav a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
 
+/* 右側アイコン */
 .header-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.icon-link {
-  text-decoration: none;
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
   font-size: 18px;
-  line-height: 1;
+  padding: 6px;
 }
 
-/* いまの .header a の影響を避ける（重要） */
-.header a {
-  margin-left: 0;
+/* ☰ */
+#menu-btn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 21;
 }
 
-
-
+/* ===== Hero ===== */
 .hero {
   height: 60vh;
   background: linear-gradient(#333, #555);
@@ -82,10 +98,9 @@ body {
 }
 
 .hero h2 {
-  word-break: keep-all;
   text-align: center;
+  margin: 0 16px;
 }
-
 
 section {
   max-width: 960px;
@@ -93,102 +108,69 @@ section {
   padding: 0 16px;
 }
 
-.menu ul {
-  list-style: none;
-  padding: 0;
+/* 下層ページ */
+.page-hero {
+  padding-top: 40px;
+  text-align: center;
 }
 
-.menu li {
-  margin-bottom: 12px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #6b4e3d;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-}
-
-#menu-btn {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* スマホ時のメニューの見た目（アニメーション対応） */
-/* スマホ時のメニューの見た目 */
-@media (max-width: 768px) {
-  .menu-btn {
-    display: block;
-  }
-
-  .nav {
-    display: none; /* スマホでは隠す */
-    position: absolute;
-    top: 100%;
-    left: 24px;   /* スタバ風に左から出す */
-    right: auto;
-
-    background: #fff;
-    padding: 12px 16px;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px rgba(0,0,0,.15);
-
-    flex-direction: column;
-    gap: 12px;
-
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-
-    transition: opacity .25s ease, transform .25s ease;
-    z-index: 20;
-  }
-
-  .nav.active {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-}
-
-
-/* オーバーレイ */
+/* ===== Overlay ===== */
 #overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.4);
-
   opacity: 0;
   pointer-events: none;
-
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
   z-index: 10;
 }
-
 #overlay.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-#menu-btn {
-  z-index: 21;
-  position: relative;
+body.no-scroll {
+  overflow: hidden;
 }
 
-body.no-scroll{
-    overflow: hidden;
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  #menu-btn { display: block; }
+  .header-right { display: none; }
+
+  #nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 24px;
+    background: #fff;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+    z-index: 20;
+  }
+
+  #nav.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  #nav a[aria-current="page"] {
+    text-decoration: none;
+  }
 }
 
-.logo a {
-  text-decoration: none;
-  color: #333;
+/* PCでは ☰ を完全無効 */
+@media (min-width: 769px) {
+  #menu-btn {
+    display: none;
+  }
 }
-
-
-

@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Menu | Cafe Demo</title>
-    <meta name="description" content="Cafe Demoのアクセス情報。住所・営業時間をご案内します。">
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Access | Cafe Demo</title>
+  <meta name="description" content="Cafe Demoのアクセス情報。住所・営業時間をご案内します。">
+  <link rel="stylesheet" href="/cafe-demo/css/style.css">
+  <script src="/cafe-demo/js/main.js" defer></script>
 </head>
 <body>
 
 <header class="header">
-  <h1><a href="index.html" class="logo">Cafe Demo</a></h1>
+  <div class="header-left">
+    <h1 class="logo">
+      <a href="/cafe-demo/index.html">Cafe Demo</a>
+    </h1>
+
+    <nav id="nav" aria-label="グローバルナビゲーション">
+      <a href="/cafe-demo/menu.html">Menu</a>
+      <a href="/cafe-demo/access.html" aria-current="page">Access</a>
+      <a href="/cafe-demo/contact.html">Contact</a>
+    </nav>
+  </div>
+
+  <div class="header-right">
+    <button class="icon-btn" aria-label="Search">🔍</button>
+    <button class="icon-btn" aria-label="Location">📍</button>
+    <button class="icon-btn" aria-label="Account">👤</button>
+  </div>
+
   <button id="menu-btn" aria-label="メニューを開く" aria-expanded="false">☰</button>
-  <nav id="nav" aria-label="グローバルナビゲーション">
-    <a href="menu.html">Menu</a>
-    <a href="access.html">Access</a>
-    <a href="contact.html" aria-current="page">Contact</a>
-  </nav>
 </header>
 
 <div id="overlay"></div>
 
 <main>
   <section class="page-hero">
-    <h2>Contact</h2>
-    <p>ご予約・お問い合わせはこちら。</p>
+    <h2>Access</h2>
+    <p>店舗へのアクセスはこちら。</p>
   </section>
 
-  <section class="contact">
-    <a class="btn" href="tel:0000000000">電話で予約する</a>
-    <p>受付時間：10:00 - 18:00</p>
+  <section class="access">
+    <p>〒000-0000 東京都〇〇区〇〇1-2-3</p>
+    <p>Open 10:00 - 19:00 / Wed Closed</p>
+    <p>最寄駅：〇〇駅 徒歩5分</p>
   </section>
 </main>
-
-
 
 <footer class="footer">
   <p>© Cafe Lino</p>
 </footer>
-
-<script src="js/main.js"></script>
 
 </body>
 </html>
