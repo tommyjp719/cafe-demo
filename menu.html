@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Menu | Cafe Demo</title>
+    <meta name="description" content="Cafe Linoのメニュー一覧。コーヒー、ラテ、スイーツをご用意しています。">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="header">
+  <h1><a href="index.html" class="logo">Cafe Demo</a></h1>
+  <button id="menu-btn" aria-label="メニューを開く" aria-expanded="false">☰</button>
+  <nav id="nav" aria-label="グローバルナビゲーション">
+    <a href="menu.html" aria-current="page">Menu</a>
+    <a href="access.html">Access</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div id="overlay"></div>
+
+<main>
+  <section class="page-hero">
+    <h2>Menu</h2>
+    <p>ドリンク・スイーツの一部をご紹介します。</p>
+  </section>
+
+  <section class="menu">
+    <h3>Drink</h3>
+    <ul>
+      <li>ブレンドコーヒー ¥450</li>
+      <li>カフェラテ ¥520</li>
+      <li>紅茶 ¥480</li>
+    </ul>
+
+    <h3>Dessert</h3>
+    <ul>
+      <li>チーズケーキ ¥580</li>
+      <li>ガトーショコラ ¥600</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© Cafe Lino</p>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

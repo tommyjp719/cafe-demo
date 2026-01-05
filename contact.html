@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Menu | Cafe Demo</title>
+    <meta name="description" content="Cafe Demoのアクセス情報。住所・営業時間をご案内します。">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="header">
+  <h1><a href="index.html" class="logo">Cafe Demo</a></h1>
+  <button id="menu-btn" aria-label="メニューを開く" aria-expanded="false">☰</button>
+  <nav id="nav" aria-label="グローバルナビゲーション">
+    <a href="menu.html">Menu</a>
+    <a href="access.html">Access</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </nav>
+</header>
+
+<div id="overlay"></div>
+
+<main>
+  <section class="page-hero">
+    <h2>Contact</h2>
+    <p>ご予約・お問い合わせはこちら。</p>
+  </section>
+
+  <section class="contact">
+    <a class="btn" href="tel:0000000000">電話で予約する</a>
+    <p>受付時間：10:00 - 18:00</p>
+  </section>
+</main>
+
+
+
+<footer class="footer">
+  <p>© Cafe Lino</p>
+</footer>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
