@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Access | Cafe Demo</title>
-  <meta name="description" content="Cafe Demoのアクセス情報。住所・営業時間をご案内します。">
+  <title>Contact | Cafe Demo</title>
+  <meta name="description" content="Cafe Demoへのご予約・お問い合わせページです。">
   <link rel="stylesheet" href="/cafe-demo/css/style.css">
   <script src="/cafe-demo/js/main.js" defer></script>
 </head>
@@ -12,14 +12,12 @@
 
 <header class="header">
   <div class="header-left">
-    <h1 class="logo">
-      <a href="/cafe-demo/index.html">Cafe Demo</a>
-    </h1>
+    <h1 class="logo"><a href="/cafe-demo/index.html">Cafe Demo</a></h1>
 
     <nav id="nav" class="nav" aria-label="グローバルナビゲーション">
       <a href="/cafe-demo/menu.html">Menu</a>
       <a href="/cafe-demo/access.html">Access</a>
-      <a href="/cafe-demo/contact.html">Contact</a>
+      <a href="/cafe-demo/contact.html" aria-current="page">Contact</a>
     </nav>
   </div>
 
@@ -32,19 +30,17 @@
   <button id="menu-btn" aria-label="メニューを開く" aria-expanded="false">☰</button>
 </header>
 
-
 <div id="overlay"></div>
 
 <main>
   <section class="page-hero">
-    <h2>Access</h2>
-    <p>店舗へのアクセスはこちら。</p>
+    <h2>Contact</h2>
+    <p>ご予約・お問い合わせはこちら。</p>
   </section>
 
-  <section class="access">
-    <p>〒000-0000 東京都〇〇区〇〇1-2-3</p>
-    <p>Open 10:00 - 19:00 / Wed Closed</p>
-    <p>最寄駅：〇〇駅 徒歩5分</p>
+  <section class="contact">
+    <a class="btn" href="tel:0000000000">電話で予約する</a>
+    <p>受付時間：10:00 - 18:00</p>
   </section>
 </main>
 
