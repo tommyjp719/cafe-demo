@@ -50,3 +50,10 @@ if (menuBtn && nav && overlay) {
     if (e.key === "Escape") closeNav();
   });
 }
+
+//header.htmlを読み込む
+fetch("/cade-demo/header.html")
+  .then(res => res.text())
+  .then(html => {
+    document.getElementById("header").innerHTML =html;
+  });
