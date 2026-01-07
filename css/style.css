@@ -174,3 +174,14 @@ body.no-scroll {
     display: none;
   }
 }
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #6b4e3d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  opacity: 0.85;
+}
