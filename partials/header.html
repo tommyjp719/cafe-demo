@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cafe Demo</title>
+  <link rel="stylesheet" href="/cafe-demo/css/style.css">
+  <script src="/cafe-demo/js/main.js" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <h1 class="logo">
+      <a href="/cafe-demo/index.html">Cafe Demo</a>
+    </h1>
+
+    <nav id="nav" class="nav" aria-label="グローバルナビゲーション">
+      <a href="/cafe-demo/menu.html" data-page="menu">Menu</a>
+      <a href="/cafe-demo/access.html" data-page="access">Access</a>
+      <a href="/cafe-demo/contact.html" data-page="contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="header-right">
+    <button class="icon-btn" aria-label="Search">🔍</button>
+    <button class="icon-btn" aria-label="Location">📍</button>
+    <button class="icon-btn" aria-label="Account">👤</button>
+  </div>
+
+  <button id="menu-btn" aria-label="メニューを開く" aria-expanded="false">☰</button>
+</header>
+
+<div id="overlay"></div>
+
+</body>

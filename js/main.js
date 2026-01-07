@@ -5,6 +5,7 @@ const overlay = document.getElementById("overlay");
 const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
 
 if (menuBtn && nav && overlay) {
+
   function closeNav() {
     nav.classList.remove("active");
     overlay.classList.remove("active");
@@ -13,7 +14,7 @@ if (menuBtn && nav && overlay) {
   }
 
   function openNav() {
-    if (!isMobile()) return;        // PCでは開かない
+    if (!isMobile()) return;
     nav.classList.add("active");
     overlay.classList.add("active");
     document.body.classList.add("no-scroll");
@@ -21,10 +22,11 @@ if (menuBtn && nav && overlay) {
   }
 
   function toggleNav() {
+    if (!isMobile()) return;   // ★ ここを追加（保険）
     nav.classList.contains("active") ? closeNav() : openNav();
   }
 
-  // ★ ページ表示時に必ず初期化（overlay残り防止）
+  // 初期化
   closeNav();
 
   menuBtn.addEventListener("click", (e) => {
@@ -34,14 +36,14 @@ if (menuBtn && nav && overlay) {
 
   overlay.addEventListener("click", closeNav);
 
- nav.addEventListener("click", (e) => {
-  const link = e.target.closest("a");
-  if (!link) return;
-  closeNav();   // 閉じるだけ。遷移はブラウザに任せる
-});
+  nav.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    closeNav();
+  });
 
   window.addEventListener("resize", () => {
-    if (!isMobile()) closeNav();    // PC幅に戻ったら強制的に閉じる
+    if (!isMobile()) closeNav();
   });
 
   document.addEventListener("keydown", (e) => {
