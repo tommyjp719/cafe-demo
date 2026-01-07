@@ -52,7 +52,7 @@ if (menuBtn && nav && overlay) {
 }
 
 //header.htmlを読み込む
-fetch("/cade-demo/header.html")
+fetch("/cade-demo/partials/header.html")
   .then(res => res.text())
   .then(html => {
     document.getElementById("header").innerHTML =html;
